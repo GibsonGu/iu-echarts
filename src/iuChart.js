@@ -25,9 +25,6 @@ angular.module('iu',[])
          */
         function initializeChart(){
           dom = elem.find('div')[0] || elem[0];
-          if(!dom.clientHeight){
-            dom.height(220);
-          }
           chart = echarts.init(dom);
           chart.setOption(scope.iuChart);
 
