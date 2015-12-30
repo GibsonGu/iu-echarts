@@ -4,6 +4,9 @@
   "authors": [
     "huk <ihuke@126.com>"
   ],
+  "main": [
+    "src/iuChart.js"
+  ],
   "description": "eCharts for Angular.js",
   "moduleType": [
     "globals"
