@@ -16,7 +16,7 @@ angular.module('iu',[])
         iuChart: '='
       },
       link: function (scope, elem, attrs, controller) {
-        var dom,api,chart,eventId,watch, option = scope.iuChart;
+        var dom,api,chart,eventId,watch;
 
         initializeChart();
 
@@ -29,17 +29,17 @@ angular.module('iu',[])
             dom.height(220);
           }
           chart = echarts.init(dom);
-          chart.setOption(option);
+          chart.setOption(scope.iuChart);
 
-          if (angular.isFunction(option.onRegisterApi)) {
+          if (angular.isFunction(scope.iuChart.onRegisterApi)) {
             initializeApi();
-            option.onRegisterApi(api);
+            scope.iuChart.onRegisterApi(api);
           }
 
           if(angular.isDefined(scope.iuChart.version)){
             watch = scope.$watch('iuChart.version',function(newValue,oldValue){
               if(newValue !== oldValue) {
-                  chart.setOption(option,true);
+                  chart.setOption(scope.iuChart,true);
               }
             });
           }
